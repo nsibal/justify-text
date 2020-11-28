@@ -7,7 +7,7 @@ Output:
 [[String], [String]]
 */
 
-module.exports = function splitLine(line, width){
+module.exports = function splitLine (line, width) {
   if (line.length === 0) return [[], []];
 
   let [head, ...rest] = line;
