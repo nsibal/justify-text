@@ -32,15 +32,7 @@ module.exports = function lineBreaks (dict, width, line) {
   if (!dict.hasOwnProperty(splitWord)) return [[first, second]];
 
   let permutations = getPermutations([[],dict[splitWord]]);
-  let splitAns = permutations.map(perm => {
-    let leftSide = getLeft(perm);
-    let rightSide = getRight(perm, second);
-    let splittedAns = [[...first], [rightSide, ...second.slice(1)]];
-
-    if (leftSide.length) splittedAns[0].push(leftSide);
-
-    return splittedAns;
-  });
+  let splitAns = permutations.map(perm => getSplittedPerm(perm, first, second));
   let finAns = splitAns.filter(perm => isSmallerThan(perm, width));
   return finAns;
 }
@@ -52,7 +44,6 @@ function removeTrailingPunc (word) {
 
   splitArr.pop();
   return splitArr.join('');
-
 }
 
 function isLetter (char) {
@@ -68,6 +59,16 @@ function getPermutations (arr){
   let permute = [[...first, x], xs];
   let answer = getPermutations(permute);
   return [arr, ...answer];
+}
+
+function getSplittedPerm (perm, first, second) {
+  let leftSide = getLeft(perm);
+  let rightSide = getRight(perm, second);
+  let splittedAns = [[...first], [rightSide, ...second.slice(1)]];
+
+  if (leftSide.length) splittedAns[0].push(leftSide);
+
+  return splittedAns;
 }
 
 function getLeft (perm) {
