@@ -11,12 +11,12 @@ Outline to problems pertaining to justifying text in JavaScript.
 - [Background](#background)
 - [Task](#task)
   - [Sub-tasks](#sub-tasks)
-      1. [Split line](#1-split-line)
-      2. [Line breaks](#2-line-breaks)
-      3. [Blank insertions](#3-blank-insertions)
-      4. [Line cost](#4-line-cost)
-      5. [Best line break](#5-best-line-break)
-      6. [Final step to justify an array of text](#6-final-step-to-justify-an-array-of-text)
+    1. [Split line](#1-split-line)
+    2. [Line breaks](#2-line-breaks)
+    3. [Blank insertions](#3-blank-insertions)
+    4. [Line cost](#4-line-cost)
+    5. [Best line break](#5-best-line-break)
+    6. [Final step to justify an array of text](#6-final-step-to-justify-an-array-of-text)
 
 
 ## Background
@@ -48,8 +48,8 @@ This part builds on the previous. Here, we introduce the **hyphenation** in orde
 
 ```javascript
 enHyp = {
-	'controls' : ["co","nt","ro","ls"],
-	'creative' : ["cr","ea","ti","ve"],
+  'controls' : ["co","nt","ro","ls"],
+  'creative' : ["cr","ea","ti","ve"]
 }
 ```
 
@@ -59,9 +59,9 @@ Using the **object**, attempt to find all possible ways of splitting a line, wit
 enHyp ['He', 'who', 'controls', 'it'] 12
 =>
 [
-	[['He', 'who'], ['controls', 'it']],
-	[['He', 'who', 'co-'], ['ntrols', 'it']],
-	[['He', 'who', 'cont-'], ['rols', 'it']], 
+  [['He', 'who'], ['controls', 'it']],
+  [['He', 'who', 'co-'], ['ntrols', 'it']],
+  [['He', 'who', 'cont-'], ['rols', 'it']]
 ]
 ```
 
@@ -75,9 +75,9 @@ To make a line equivalent to the width, it is common to *add spaces* between the
 2 ["A", "creative", "man"]
 =>
 [
-	["A", " ", " ", "creative", "man"],
-	["A", " ", "creative", " ", "man"],
-	["A", "creative", " ", " ", "man"]
+  ["A", " ", " ", "creative", "man"],
+  ["A", " ", "creative", " ", "man"],
+  ["A", "creative", " ", " ", "man"]
 ]
 ```
 
@@ -96,9 +96,9 @@ When considering the above variables, use the following formula.
 
 ```javascript
 var totalCost = (blankCost * totalBlanks)
-	+ (blankProxCost * (arrLength - avgDist)
-	+ (blankUnevenCost * varainceDist)
-	+ (hypCost * totalHyphens);
+  + (blankProxCost * (arrLength - avgDist)
+  + (blankUnevenCost * varainceDist)
+  + (hypCost * totalHyphens);
 ```
 
 Where:
@@ -133,13 +133,13 @@ var text = "He who controls the past controls the future. He who controls the pr
 linCostFunc enHyp 15 test
 =>
 [
-	[ 'He', 'who', 'controls' ],
-	[ 'the', 'past', ' ', 'cont-' ],
-	[ 'rols', 'the', ' ', 'futu-' ],
-	[ 're.', 'He', ' ', 'who', 'co-' ],
-	[ 'ntrols', 'the', 'pre-' ],
-	[ 'sent', ' ', ' ', 'controls' ],
-	[ 'the', 'past.' ],
+  [ 'He', 'who', 'controls' ],
+  [ 'the', 'past', ' ', 'cont-' ],
+  [ 'rols', 'the', ' ', 'futu-' ],
+  [ 're.', 'He', ' ', 'who', 'co-' ],
+  [ 'ntrols', 'the', 'pre-' ],
+  [ 'sent', ' ', ' ', 'controls' ],
+  [ 'the', 'past.' ]
 ]
 
 ```
