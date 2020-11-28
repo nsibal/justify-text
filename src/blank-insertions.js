@@ -38,8 +38,9 @@ module.exports = function blankInsertions (num, line) {
 }
 
 function flatInsert (lines) {
-  return lines.map(line => singleBlankInsert(line))
-              .reduce((prev, curr)=> prev.concat(curr), []);
+  return lines
+    .map(line => singleBlankInsert(line))
+    .reduce((prev, curr)=> prev.concat(curr), []);
 }
 
 function singleBlankInsert (line) {
