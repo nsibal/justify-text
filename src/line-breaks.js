@@ -1,15 +1,5 @@
-// ==========================================
-// Functions available:
-/*
-splitLine(line, width)
-input:
-line: [String]
-width: Number
+const splitLine = require('./split-line.js');
 
-Output:
-[[String], [String]]
-*/
-// ==========================================
 /*
 input:
 dict: {String : [String]}
@@ -19,9 +9,6 @@ line: [String]
 Output:
 [[[String], [String]]]
 */
-
-const splitLine = require('./split-line.js');
-
 module.exports = function lineBreaks (dict, width, line) {
   let [first, second] = splitLine(line, width);
 

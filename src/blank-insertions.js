@@ -1,25 +1,3 @@
-// ==========================================
-// Functions available:
-/*
-splitLine(line, width)
-input:
-line: [String]
-width: Number
-
-Output:
-[[String], [String]]
-*/
-/*
-lineBreaks(dict, width, line)
-input:
-dict: {String : [String]}
-width: Number
-line: [String]
-
-Output:
-[[[String], [String]]]
-*/
-// ==========================================
 /*
 input:
 num: Number
@@ -28,7 +6,6 @@ line: [String]
 Output:
 [[String]]
 */
-
 module.exports = function blankInsertions (num, line) {
   if (num === 0 || line.length <= 1) return [line];
 

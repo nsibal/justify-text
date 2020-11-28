@@ -6,7 +6,6 @@ width: Number
 Output:
 [[String], [String]]
 */
-
 module.exports = function splitLine (line, width) {
   if (line.length === 0) return [[], []];
 

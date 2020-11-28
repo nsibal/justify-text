@@ -2,37 +2,7 @@ const blankCost = 1.0;
 const blankProxCost = 1.0;
 const blankUnevenCost = 1.0;
 const hypCost = 1.0;
-// ==========================================
-// Functions available:
-/*
-splitLine(line, width)
-input:
-line: [String]
-width: Number
 
-Output:
-[[String], [String]]
-*/
-/*
-lineBreaks(dict, width, line)
-input:
-dict: {String : [String]}
-width: Number
-line: [String]
-
-Output:
-[[[String], [String]]]
-*/
-/*
-blankInsertions(num, line)
-input:
-num: Number
-line: [String]
-
-Output:
-[[String]]
-*/
-// ==========================================
 /*
 input:
 line: [String]
@@ -40,7 +10,6 @@ line: [String]
 Output:
 Number
 */
-
 module.exports = function lineCost (line) {
   let blankPositions = blankPlacements(line, 0);
   let average = getBlankPositionsAvg(blankPositions);
